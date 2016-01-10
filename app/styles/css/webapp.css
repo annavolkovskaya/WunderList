@@ -1,0 +1,262 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src: url(../../fonts/icomoon.ttf);
+}
+
+body{
+	overflow: hidden;
+}
+
+.wrapper{
+	width:100%;
+	height:100vh;
+	background-image: url(../../img/webapp.jpg);
+	background-repeat: no-repeat;
+	background-size: 100vw 100vh;
+	background-attachment: fixed;
+}
+h2{
+	font-size: 22px;
+	float: right;
+	margin-right: 30px;
+}
+header{
+	width:100vw;
+	background-color: #ffa366;
+	float: right;
+	padding: 7px 0;
+}
+.lists{
+	width:22vw;
+	background-color: white;
+	height:76.5vh;
+	padding-bottom: 20px;
+	padding-top: 70px;
+}
+.tasks{
+	position: absolute;
+	overflow-y: scroll;
+	padding-right: 30px;
+	height: 75vh;
+	right:4vw;
+	top:100px;
+	padding-top: 10px;
+}
+.lists ul li{
+	position: relative;
+}
+.lists ul li button{
+	outline: none;
+	background-color: white;
+	border:none;
+	height: 30px;
+	width: 100%;
+	cursor: pointer;
+	text-align: left;
+	font-size: 16px;
+	color:#505050;
+	padding-left: 50px;
+	position: relative;
+	margin-top: 10px;
+}
+.lists ul li button:not(.deleteListButton):before{
+	content: '\e912';
+	font-family: 'icomoon';
+	font-size: 16px;
+	color:#909090;
+	position: absolute;
+	top: 7px;
+	left: 22px;
+}
+.user{
+	position: absolute;
+	left: 80px;
+	top: 25px;
+	color: white;
+	font-size: 18px;
+}
+.createListButton{
+	font-size: 18px;
+	background-color: white;
+	border: none;
+	height: 60px;
+	width: 22vw;
+	color: #707070;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	display: block;
+	margin-top: 20px;
+	position: fixed;
+	top:48px;
+	text-align: left;
+	padding-left: 47px;
+}
+.createListButton span{
+	font-size: 40px;
+	outline: none;
+	display: block;
+	position: absolute;
+	left: 18px;
+	top: 10%;
+}
+.addList{
+	z-index: 10;
+	width: 300px;
+	height: 160px;
+	background-color: white;
+	border-radius: 10px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-150px, -80px);
+	-webkit-box-shadow: 10px 9px 32px -7px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 9px 32px -7px rgba(0,0,0,0.75);
+	box-shadow: 10px 9px 32px -7px rgba(0,0,0,0.75);
+}
+.addList input[type="text"]{
+	width: 200px;
+	display: block;
+	margin: 20px auto;
+	padding-left: 10px;
+	height: 40px;
+	border-radius: 5px;
+	border:1px solid #909090;
+	outline: none;
+}
+.addList input[type="submit"]{
+	outline: none;
+	border: none;
+	background-color:  #ffa366;
+	font-weight: bold;
+	border-radius: 5px;
+	width: 100px;
+	height: 30px;
+	cursor: pointer;
+	color: white;
+	margin-left: 43px;
+}
+.addList label{
+	font-size: 18px;
+	color: #505050;
+	margin: 10px 0;
+	text-align: center;
+	width: 295px;
+	display: block;
+}
+.addList input.cancelButton{
+	background-color: white;
+	border: 1px solid #ffa366;
+	color: #707070;
+	margin-left: 10px;
+}
+.addList input.cancelButton:hover{
+	background-color: #ffa366;
+	color: white;
+}
+.addTask input[type="text"]{
+	width: 54vw;
+	height: 40px;
+	border: 1px solid #909090;
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 120px;
+	outline: none;
+	margin-bottom: 30px;
+	-webkit-box-shadow: 10px 9px 32px -7px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 9px 32px -7px rgba(0,0,0,0.75);
+	box-shadow: 10px 9px 32px -7px rgba(0,0,0,0.75);
+}
+.addTask input[type="submit"]{
+	width: 100px;
+	line-height: 1em;
+	height: 40px;
+	border-radius: 0 5px 5px 0;
+	outline: none;
+	cursor: pointer;
+	background-color: #ffa366;
+	border: none;
+	color: white;
+	position: absolute;
+	top: 11px;
+	font-size: 40px;
+	right: 30px;
+	border-right: 1px solid #909090;
+}
+.tasks ul li{
+	box-sixing: border-box;
+	height: auto;
+	background-color: white;
+	list-style-type: none;
+	padding:10px 10px 10px 30px;
+	border-radius: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 15px;
+	color: #505050;
+	margin-bottom: 5px;
+	-webkit-box-shadow: 10px 9px 32px -7px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 9px 32px -7px rgba(0,0,0,0.75);
+	box-shadow: 10px 9px 32px -7px rgba(0,0,0,0.75);
+}
+.photoButton{
+	background-color: white;
+	background-image: url(../../img/photo.png);
+	background-size: 100%;
+	cursor: pointer;
+	border: none;
+	height:50px;
+	width: 50px;
+	outline: none;
+	border-radius: 50%;
+	margin-left: 20px;
+}
+.lists{
+	overflow-y: scroll;
+}
+.lists ul li button.deleteListButton{
+	position: absolute;
+	width: 0;
+	color: red;
+	padding: 0;
+	top: 0;
+	right: 20px;
+}
+.taskCheckbox{
+	cursor: pointer;
+}
+.showCompletedButton{
+	font-size: 15px;
+	background-color: #ffa366;
+	color: white;
+	padding: 10px 15px;
+	cursor: pointer;
+	outline: none;
+	display: block;
+	top:48px;
+	border-radius: 5px;
+	border: none;
+}
+.finishedTasks{
+	margin-top: 5px;
+}
+.finishedTasks{
+	opacity: 0.7;
+}
+.lists ul li button.active{
+	border: 2px solid #ffa366;
+	border-radius: 3px;
+}
+.tasks ul li.active{
+	border: 2px solid #ffa366;
+}
+.listName{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}

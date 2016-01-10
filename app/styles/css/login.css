@@ -1,0 +1,69 @@
+.wrapper{
+	width: 350px; 
+	height: 250px;
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform: translate(-175px, -180px);
+	background-color: white;
+	border-radius: 10px;
+}
+input[type="password"], input[type="text"]{
+	width: 300px;
+	display: block;
+	margin: 20px auto;
+	padding-left: 10px;
+	height: 40px;
+	border-radius: 5px;
+	border:1px solid #909090;
+	outline: none;
+}
+input[type="submit"], button{
+	border-radius: 5px;
+	border: none;
+	width: 100px;
+	height: 30px;
+	cursor: pointer;
+}
+.forgotPassword{
+	width: 170px;
+	height: 30px;
+}
+body{
+	background-image: url(../../img/background.jpg);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-attachment: fixed;
+}
+input.loginButton{
+	width: 150px;
+	float: left;
+	background-color: #ffa64d;
+	color: white;
+	outline: none;
+	display: block;
+	font-weight: bold;
+	margin-left: 20px;
+}
+.changeButton, .forgotPassword{
+	background-color: white;
+	color: #404040;
+	outline: none;
+}
+.forgotPassword:hover{
+	text-decoration: underline;
+}
+.changeButton{
+	width: 110px;
+	border: 2px solid #ffa64d;
+	display: block;
+	position: absolute;
+	left:50%;
+	bottom: 20px;
+	transform:translate(-55px, 0);
+}
+.changeButton:hover{
+	background-color: #ffa64d;
+	color: white;
+	font-weight: bold;
+}

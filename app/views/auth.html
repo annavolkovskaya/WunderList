@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app='nameApp'>
+<head>
+	<title>Wunderlist</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/app/styles/css/login.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="/app/controllers/loginCtrl.js"></script>
+</head>
+<body ng-controller='NameCtrl'>
+	<div class="wrapper">
+		<form method="post" class='auth' ng-hide="!auth">
+			<input type='text' placeholder='Email' ng-model='user.email'>
+			<input type='password' placeholder='Password' ng-model='user.password'>
+			<input type="submit" ng-click="login(user)" value="Log in" class="loginButton">
+			<span>{{error}}</span>
+		</form>
+		<button class="forgotPassword" ng-hide="!auth">Forgot your password?</button>
+		<button ng-click="change()" class="changeButton">{{buttonName}}</button>
+
+		<form method="post" class='registration' ng-hide='auth'>
+			<input type='text' placeholder='Email' ng-model='user.email'>
+			<input type='password' placeholder='Password' ng-model='user.password'>
+			<input type="submit" ng-click="registrate(user)" class="loginButton" value="Sign up">	
+			<span>{{error}}</span>
+		</form>
+	</div>
+</body>
+</html>
