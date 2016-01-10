@@ -9,9 +9,8 @@ nameApp.controller('NameCtrl', function ($scope, $http, $location){
 	  		url: '/login',
 	   		data: user
 		}).then(function successCallback(response) {
-			console.log(response);
-			if (response.data === "user doesn't exist" 
-				|| response.data === "password is invalid"){
+			if (response.data === "User doesn't exist" 
+				|| response.data === "Password is invalid"){
 				$scope.error = response.data;
 			}else{
 				window.location.replace("/webapp#/lists");
@@ -26,9 +25,8 @@ nameApp.controller('NameCtrl', function ($scope, $http, $location){
 			url: '/registration',
 			data: user
 		}).then(function successCallback(response) {
-			console.log(response);
-			if (response.data === "invalid email or password length is less than 7 symbols" 
-				|| response.data === "dublicate users"){
+			if (response.data === "Invalid email or password length is less than 7 symbols" 
+				|| response.data === "Dublicate users"){
 				$scope.error = response.data;
 			}else{
 			window.location.replace("/webapp#/lists")

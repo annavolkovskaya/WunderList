@@ -76,7 +76,7 @@ header{
 .user{
 	position: absolute;
 	left: 80px;
-	top: 25px;
+	top: 15px;
 	color: white;
 	font-size: 18px;
 }
@@ -229,6 +229,11 @@ header{
 }
 .taskCheckbox{
 	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+	margin-right: 15px;
 }
 .showCompletedButton{
 	font-size: 15px;
@@ -244,8 +249,6 @@ header{
 }
 .finishedTasks{
 	margin-top: 5px;
-}
-.finishedTasks{
 	opacity: 0.7;
 }
 .lists ul li button.active{
@@ -253,10 +256,67 @@ header{
 	border-radius: 3px;
 }
 .tasks ul li.active{
-	border: 2px solid #ffa366;
+	background-color: rgba(255, 163, 102, 0.9);
 }
 .listName{
 	position: absolute;
-	top: 10px;
-	right: 10px;
+	top: 23px;
+	left: 24vw;
+	font-size: 20px;
+	color: white;
+}
+.logoutButton{
+	display: inline-block;
+	padding:2px 5px;
+	text-decoration: none;
+	position: absolute;
+	left: 75px;
+	top: 35px;
+	color: white;
+}
+.logoutButton:hover{
+	text-decoration: underline;
+}
+.tasks ul li label, .finishedTasks label{
+	cursor: pointer;
+	width: 100%;
+	display: block;
+}
+::-webkit-scrollbar {
+  background: transparent;
+  width: 5px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #505050;
+}
+.listOptions label{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	margin-bottom: 30px;
+	margin-top: 20px;
+}
+.setDateButton{
+	outline: none;
+	background-color: #ffa366;
+	border:none;
+	border-radius: 5px;
+	height: 30px;
+	padding: 5px 8px;
+	margin-left: 41px;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+	text-align: left;
+	font-size: 14px;
+	color:white;
+	margin-top: 10px;
+}
+.listOptions span{
+	color: #505050;
+	margin-left: 40px;
+}
+.calendar{
+	padding-left: 5px;
+	width:140px;
 }

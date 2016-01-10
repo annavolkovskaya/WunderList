@@ -67,3 +67,10 @@ input.loginButton{
 	color: white;
 	font-weight: bold;
 }
+.auth span, .registration span{
+	color: red;
+	position: absolute;
+	top: 130px;
+	left: 25px;
+	font-size: 12px;
+}

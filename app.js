@@ -2,8 +2,8 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var User = require('./app/models/user');
 var moment = require('moment');
-var User = require('./app/models/user')
 app.use(bodyParser());	
 app.use(session({resave: true, saveUninitialized: true, secret: 'SECRETWORD', cookie: { maxAge: 60000000 }}));
 app.use(express.static(__dirname));
@@ -55,23 +55,22 @@ app.get('/logout', function(req, res){
 		req.session.destroy();
 		res.redirect('/');
 	}else{
-		res.send('No login');
+		res.redirect('/');
 	}
 });
-
 app.post('/registration', function(req, res){
 	if (req.session.userId){
 		res.send("logged in")
 	}else{
 		if (!req.body.email){
-			res.send('invalid email or password length is less than 7 symbols');
+			res.send('Invalid email or password length is less than 7 symbols');
 			return;
 		}
 		var emailRegExp = /^(\S+)@([a-z0-9-]+)(\.)([a-z]{2,4})(\.?)([a-z]{0,4})+$/
 		var checked = req.body.email.match(emailRegExp);
 		
 		if (checked === null || req.body.password.length<7){
-			res.send("invalid email or password length is less than 7 symbols");
+			res.send("Invalid email or password length is less than 7 symbols");
 			return;
 		}
 		var registration = function(){
@@ -97,7 +96,7 @@ app.post('/registration', function(req, res){
 				registration();
 			}
 			else{
-				res.send('dublicate users');
+				res.send('Dublicate users');
 			}
 		})
 	}	
@@ -128,6 +127,9 @@ app.post('/lists/:id/newTask', function(req, res){
 		})
 	}
 });
+
+
+
 
 app.get('/lists/:id', function(req, res){
 	if (!req.session.userId){
@@ -219,6 +221,9 @@ app.get('/lists/:listId/revertTaskState/:taskId', function(req, res){
 		})}
 });
 
+
+
+
 app.get('/', function(req, res){
 	if(req.session.userName){
 		res.redirect('/webapp');
@@ -251,21 +256,21 @@ app.post('/login', function(req, res){
 		res.send('logged in');
 	}else{
 		var login = function(user){
-			var password = req.body.password;
+			var password = req.body.password || "";
 			if(user.coding(password)){
 				req.session.userName = req.body.email;
 				req.session.userId = user._id;
 				res.redirect('/webapp');
 			}
 			else{
-				res.send('password is invalid');
+				res.send('Password is invalid');
 			}
 		}
 
 		User.findOne({email:req.body.email}, function(err, users){
 			if(err) throw err;
 			if (users === null){
-				res.send("user doesn't exist");
+				res.send("User doesn't exist");
 			}
 			else{
 				login(users);
@@ -273,6 +278,7 @@ app.post('/login', function(req, res){
 		})
 	}
 });
+
 
 app.get('/lists/:listId/:taskId/updateDate/:date', function(req, res){
 	if (!req.session.userId){
@@ -308,4 +314,5 @@ app.get('/lists/:listId/:taskId/updateDate/:date', function(req, res){
 		})}
 });
 
-app.listen(3000);
+
+app.listen(3001);

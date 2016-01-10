@@ -4,6 +4,7 @@ listApp.controller('listCtrl', function ($scope, $http, $location){
 	var hideLists = false;
 	var currentListId;
 	$scope.createList = true;
+	$scope.finishedTasks = [];
 	$http({
 		method:'GET',
 		url:'/getUser'
@@ -16,7 +17,6 @@ listApp.controller('listCtrl', function ($scope, $http, $location){
 		for(var i in $scope.lists){
 			$scope.lists[i]['style'] = '';
 		}
-		console.log($scope.lists[index]);
 		$scope.lists[index]['style'] = 'active';
 		$scope.currentList = $scope.lists[index].title;
 		currentListId = task;
@@ -27,12 +27,9 @@ listApp.controller('listCtrl', function ($scope, $http, $location){
 			url: $location.path()
 		}).then(function successCallback(response){
 			$scope.tasks = [];
-			$scope.finishedTasks = [];
-			console.log(response);
 			if(response.data[0]){
 				for (var task in response.data){
 					var newTask = response.data[task];
-					// newTask.date = moment(newTask.date).format('YYYY-DD-MM');
 					newTask['style'] = '';
 					if (newTask.status){
 						newTask['state'] = true;
@@ -105,6 +102,8 @@ listApp.controller('listCtrl', function ($scope, $http, $location){
 		   		data: list
 			}).then(function successCallback(response) {
 				$location.path('lists/' + response.data);
+				currentListId = response.data;
+				$scope.finishedTasks = [];
 				$scope.tasks = [];
 				$scope.lists.push({
 					'title':list.listName,
@@ -165,6 +164,7 @@ listApp.controller('listCtrl', function ($scope, $http, $location){
   			method: 'GET',
   			url:/lists/ + currentListId + '/revertTaskState/' + obj['_id']
   		}).then(function successCallback(response){
+  			delete obj.state;
   			$scope.tasks.push(obj);
   		}, function errorCallback(response){
   			throw new Error('Error!');
