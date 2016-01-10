@@ -1,7 +1,6 @@
 var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://127.0.0.1:27017/users');
 var sha1 = require('sha1');
-var list = require('./list');
 var userSchema = new mongoose.Schema({
     email:  String,
     password:   String,
