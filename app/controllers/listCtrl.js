@@ -1,4 +1,19 @@
 var listApp = angular.module('listApp', []);
+
+window.addEventListener('resize', function(){
+	if(window.innerWidth > 750) {
+		document.getElementsByClassName('lists')[0].style.display = 'block';
+	}
+}, true);
+
+function openList() {
+	document.getElementsByClassName('lists')[0].style.display = 'none';
+}
+
+function backToLists() {
+	document.getElementsByClassName('lists')[0].style.display = 'block';
+}
+
 listApp.controller('listCtrl', function ($scope, $http, $location){
   	$scope.showTaskInfo = true;
 	var hideLists = false;

@@ -29,12 +29,13 @@ header{
 	width:100vw;
 	background-color: #ffa366;
 	float: right;
+	height: 54px;
 	padding: 7px 0;
 }
 .lists{
-	width:22vw;
+	width:305px;
 	background-color: white;
-	height:76.5vh;
+	height:100%;
 	padding-bottom: 20px;
 	padding-top: 70px;
 }
@@ -49,20 +50,22 @@ header{
 }
 .lists ul li{
 	position: relative;
+	list-style-type: none;
 }
 .lists ul li button{
 	outline: none;
 	background-color: white;
 	border:none;
 	height: 30px;
-	width: 100%;
+	width: 90%;
 	cursor: pointer;
 	text-align: left;
 	font-size: 16px;
 	color:#505050;
-	padding-left: 50px;
+	padding-left: 30px;
 	position: relative;
 	margin-top: 10px;
+	margin-left: 10px;
 }
 .lists ul li button:not(.deleteListButton):before{
 	content: '\e912';
@@ -70,12 +73,44 @@ header{
 	font-size: 16px;
 	color:#909090;
 	position: absolute;
-	top: 7px;
-	left: 22px;
+	top: 6px;
+	left: 5px;
+}
+
+.lists ul li button.goToListButton:before {
+	content: '';
+}
+
+button.goToListButton {
+	display: none;
+}
+
+@media screen and (max-width: 750px) {
+	.lists ul li button.goToListButton {
+		display: block;
+		position: absolute;
+		top: 12px;
+		font-weight: bold;
+		width: 50px;
+		text-align: center;
+		padding: 0;
+		margin: 0;
+		right: -8px;
+		height: 26px;
+		color: blue;
+		border-left: 2px dashed #ffa366;
+	}
+
+	.lists ul li button {
+		width: 100%;
+	}
 }
 .user{
 	position: absolute;
 	left: 80px;
+	width: 220px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	top: 15px;
 	color: white;
 	font-size: 18px;
@@ -85,7 +120,7 @@ header{
 	background-color: white;
 	border: none;
 	height: 60px;
-	width: 22vw;
+	width: 305px;
 	color: #707070;
 	position: relative;
 	cursor: pointer;
@@ -96,6 +131,7 @@ header{
 	top:48px;
 	text-align: left;
 	padding-left: 47px;
+	border-bottom: 2px dashed #ffa366;
 }
 .createListButton span{
 	font-size: 40px;
@@ -153,7 +189,6 @@ header{
 	background-color: white;
 	border: 1px solid #ffa366;
 	color: #707070;
-	margin-left: 10px;
 }
 .addList input.cancelButton:hover{
 	background-color: #ffa366;
@@ -225,7 +260,7 @@ header{
 	color: red;
 	padding: 0;
 	top: 0;
-	right: 20px;
+	right: 40px;
 }
 .taskCheckbox{
 	cursor: pointer;
@@ -254,16 +289,24 @@ header{
 .lists ul li button.active{
 	border: 2px solid #ffa366;
 	border-radius: 3px;
+	margin-left: 10px;
 }
 .tasks ul li.active{
 	background-color: rgba(255, 163, 102, 0.9);
 }
 .listName{
 	position: absolute;
-	top: 23px;
-	left: 24vw;
+	top: 15px;
+	right: -200px;
 	font-size: 20px;
 	color: white;
+	width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.authData {
+	width: 315px;
+	position: relative;
 }
 .logoutButton{
 	display: inline-block;
@@ -319,4 +362,168 @@ header{
 .calendar{
 	padding-left: 5px;
 	width:140px;
+}
+
+.backToListsButton {
+	display: none;
+}
+
+@media screen and (max-width: 950px) {
+	.tasks form input[type='text'] {
+		width: 30vw;
+	}
+
+	.tasks {
+		right: 4vw;
+	}
+}
+
+@media screen and (min-width: 950px) and (max-width: 1200px) {
+	.tasks form input[type='text'] {
+		width: 45vw;
+	}
+}
+
+@media screen and (max-width: 750px) {
+	.lists {
+		width: 100%;
+		position: absolute;
+		z-index: 10;
+		margin-top: 66px;
+	}
+
+	.lists ul {
+		padding: 0 20px;
+	}
+
+	header {
+		position: absolute;
+		z-index: 15;
+	}
+
+	.lists ul li button.deleteListButton {
+		right: 70px;
+	}
+
+	.createListButton {
+		width: 100%;
+	}
+
+	.tasks form input[type='text'] {
+		width: 55vw;
+	}
+
+	.backToListsButton {
+		display: block;
+	}
+
+	.addTask input[type="submit"] {
+		top: 68px;
+	}
+
+	.addTask input[type="text"] {
+		margin-top: 20px;
+	}
+
+	.addList {
+		transform: translate(-150px, -200px);
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.wrapper {
+		background-image: url(../../img/photo-mobile.png);
+	}
+
+	.tasks form input[type='text'] {
+		width: 40vw;
+	}
+
+	.listName {
+		right: 0;
+		text-align: right;
+		top: 35px;
+		width: 100px;
+	}
+}
+
+@media screen and (max-height: 450px) {
+	.tasks {
+		height: 65vh;
+	}
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1600px){
+	.tasks form input[type='text'] {
+		width: 55vw;
+	}
+}
+
+@media screen and (min-width: 1600px) {
+	.tasks form input[type='text'] {
+		width: 65vw;
+	}
+
+	.tasks ul li {
+		height: 35px;
+		font-size: 20px;
+		line-height: 35px;
+	}
+
+	.tasks ul li input {
+		margin-top: 6px;
+	}
+
+	.showCompletedButton {
+		font-size: 20px;
+	}
+
+	.tasks form.addTask input {
+		height: 60px;
+	}
+
+	.tasks form.addTask input[type="text"] {
+		font-size: 20px;
+	}
+
+	.lists .createListButton{
+		font-size: 20px;
+	}
+
+	.lists ul li button {
+		font-size: 20px;
+	}
+
+	.authData .user{
+		font-size: 24px;
+		top: 7px;
+	}
+
+	.authData .listName {
+		font-size: 25px;
+	}
+
+	.addList {
+		width: 600px;
+		height: 250px;
+	}
+
+	.addList label {
+		font-size: 25px;
+		width: 100%;
+	}
+
+	.addList input[type="text"] {
+		width: 400px;
+		font-size: 20px;
+		margin-top: 30px;
+	}
+	.addList input[type="submit"] {
+		font-size: 20px;
+		margin-top: 30px;
+	}
+
+	.addList input[type="submit"]:not(.cancelButton) {
+		margin-left: 180px;
+	}
 }

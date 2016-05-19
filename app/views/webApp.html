@@ -6,30 +6,34 @@
 	<link rel="stylesheet" type="text/css" href="/app/styles/css/webapp.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 	<script src="/app/controllers/listCtrl.js"></script>
+	<meta name="viewport" content="initial-scale=1.0">
 </head>
 <body>
 	<div class='wrapper' ng-controller="listCtrl">
 		<header>
-			<button class="photoButton"></button>
-			<div class="user">
-				{{userEmail}}
+			<div class="authData">
+				<button class="photoButton"></button>
+				<div class="user">
+					{{userEmail}}
+				</div>
+				<div class="listName">
+					{{currentList}}
+				</div>
+				<a href="/logout" class="logoutButton">Log out</a>
 			</div>
-			<div class="listName">
-				{{currentList}}
-			</div>
-			<a href="/logout" class="logoutButton">Log out</a>
 		</header>
 		<div class="lists">
 			<ul>
 				<li ng-repeat='list in lists'>
 					<button ng-click="loadTask(list['_id'], $index)" class="listItem {{list.style}}">{{list.title}}</button>
+					<button class="goToListButton" ng-click="loadTask(list['_id'], $index)"  onClick="openList()">></button>
 					<button ng-click="removeList(list['_id'])" class="deleteListButton">x</button>
 				</li>
 			</ul>
 			<button ng-click='addList()' class="createListButton"><span>+</span> Create list</button>
 			<form class='addList' ng-hide="createList">
 				<label>Create new list</label>
-				<input type="text" placeholder="List name" ng-model="list.listName" class="addListField" maxLength="20">
+				<input type="text" placeholder="List name" ng-model="list.listName" class="addListField" maxLength="17">
 				<input type="submit" value="Create" ng-click="addList(list)">
 				<input type="submit" value="Cancel" ng-click="closeAddList()" class="cancelButton">
 			</form>
@@ -38,6 +42,7 @@
 
 
 		<div class="tasks">
+			<button class="showCompletedButton backToListsButton" onclick="backToLists()">Back to lists</button>
 			<form class='addTask'>
 				<input type="text" placeholder="Add a to-do" ng-model="task.taskName" class="addTaskButton" maxlength="85">
 				<input type="submit" value="+" ng-click="addTask(task)">
