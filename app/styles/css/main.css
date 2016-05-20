@@ -5,13 +5,11 @@ body{
 	background-attachment: fixed;
 }
 .wrapper{
-	width: 900px;
-	height: 500px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-450px, -250px);
-	background: url(../../img/main_notebook.png) 450px 30px;
+	width: 66vw;
+	height: 400px;
+	margin: auto;
+	margin-top: 100px;
+	background: url(../../img/main_notebook.png) 450px 0;
 	background-repeat: no-repeat;
 	background-size: 450px 350px;
 }
@@ -40,4 +38,16 @@ h1{
 	text-align: center;
 	line-height: 2em;
 	margin-top: 40px;
+}
+
+@media screen and (max-width: 1350px) {
+	.wrapper {
+		width: 100%;
+		background-image: none;
+	}
+
+	.mainInfo {
+		margin: auto;
+		width: 300px;
+	}
 }

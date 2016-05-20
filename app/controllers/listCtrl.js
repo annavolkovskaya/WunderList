@@ -32,6 +32,7 @@ listApp.controller('listCtrl', function ($scope, $http, $location){
 		for(var i in $scope.lists){
 			$scope.lists[i]['style'] = '';
 		}
+		$scope.finishedTasks = [];
 		$scope.lists[index]['style'] = 'active';
 		$scope.currentList = $scope.lists[index].title;
 		currentListId = task;

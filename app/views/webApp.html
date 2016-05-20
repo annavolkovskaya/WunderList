@@ -55,7 +55,7 @@
 				</li>
 			</ul>
 			<button ng-click="showCompleted()" class="showCompletedButton">Show complited to-do's</button>
-			<ul>
+			<ul class="finishedTasksList">
 				<li ng-repeat='finishedTask in finishedTasks' ng-hide="finishedTask.state" class="finishedTasks {{finishedTask.style}}">
 					<input type="checkbox" class="taskCheckbox" ng-model="finishedTask.status" ng-change="changeFinishedTaskState($index)">
 					<label ng-click="showInfo(finishedTask, $index)">{{finishedTask.title}}</label>
