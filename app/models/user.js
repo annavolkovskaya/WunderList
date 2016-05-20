@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var db = mongoose.connect('mongodb://127.0.0.1:27017/users');
+var db = mongoose.connect('mongodb://pekert:123@ds011442.mlab.com:11442/wunderlist');
 var sha1 = require('sha1');
 var userSchema = new mongoose.Schema({
     email:  String,

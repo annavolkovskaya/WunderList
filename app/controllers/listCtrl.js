@@ -19,7 +19,6 @@ listApp.controller('listCtrl', function ($scope, $http, $location){
 	var hideLists = false;
 	var currentListId;
 	$scope.createList = true;
-	$scope.finishedTasks = [];
 	$http({
 		method:'GET',
 		url:'/getUser'
